@@ -4,7 +4,7 @@ const BrekingNews = () => {
   return (
     <div className="container mx-auto flex gap-4">
       <button className="btn btn-error">Latest News</button>
-      <Marquee>
+      <Marquee pauseOnHover={true}>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum rem
           optio, natus quam culpa numquam minima itaque harum atque nostrum
