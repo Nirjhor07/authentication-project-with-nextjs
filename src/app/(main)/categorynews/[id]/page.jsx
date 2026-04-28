@@ -1,6 +1,7 @@
 import { newsByCategories } from "@/lib/fetchdata";
 import AllCategories from "../../ComponentsMain/AllCategories/AllCategories";
 import RightHomeSide from "../../ComponentsMain/RightHome/RightHomeSide";
+import NewsCard from "./NewsCard/NewsCard";
 
 const CategoryNewsPage = async ({ params }) => {
   const { id } = await params;
@@ -21,9 +22,8 @@ const CategoryNewsPage = async ({ params }) => {
           <div className="container mx-auto">
             {newsByCat.data.length > 0 ? (
               newsByCat.data?.map((news, index) => (
-                <ul className="border mt-2" key={index}>
-                  <li>{news.details}</li>
-                </ul>
+                //adding newd card component
+                <NewsCard key={index} news={news} />
               ))
             ) : (
               <h2 className="text-2xl font-bold text-center mt-4">
