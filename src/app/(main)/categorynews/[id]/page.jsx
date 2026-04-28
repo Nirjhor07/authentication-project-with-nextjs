@@ -3,6 +3,28 @@ import AllCategories from "../../ComponentsMain/AllCategories/AllCategories";
 import RightHomeSide from "../../ComponentsMain/RightHome/RightHomeSide";
 import NewsCard from "./NewsCard/NewsCard";
 
+const categoryNames = {
+  "01": "Politics",
+  "02": "Technology",
+  "03": "Business",
+  "04": "Sports",
+  "05": "Entertainment",
+  "06": "Health",
+  "07": "World",
+  "08": "Science",
+};
+
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const categoryName = categoryNames[id] || "News";
+
+  return {
+    title: `${categoryName} News | Dragon News`,
+    description: `Latest ${categoryName.toLowerCase()} news and stories. Stay updated with breaking news in ${categoryName.toLowerCase()} on Dragon News`,
+    keywords: `${categoryName.toLowerCase()} news, ${categoryName.toLowerCase()} stories, breaking news`,
+  };
+}
+
 const CategoryNewsPage = async ({ params }) => {
   const { id } = await params;
 

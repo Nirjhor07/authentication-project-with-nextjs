@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "News Article | Dragon News",
+  description: "Read the latest news article on Dragon News",
+};
+
 const NewsDetailsPage = () => {
   return (
     <div>

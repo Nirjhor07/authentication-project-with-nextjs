@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Page Not Found | Dragon News",
+  description: "The page you're looking for could not be found",
+};
+
 export default function NotFound() {
   return (
     <div className="flex items-center justify-center min-h-screen">
