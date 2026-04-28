@@ -13,3 +13,11 @@ export const allCat = async () => {
   );
   return res.json();
 };
+
+// news details fetch api by id function
+export const newsDetailsByIds = async (id) => {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/news/${id}`,
+  );
+  return res.json();
+};

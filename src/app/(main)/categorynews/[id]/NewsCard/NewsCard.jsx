@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaEye, FaFire, FaStar, FaClock, FaShare } from "react-icons/fa";
 import { formatDistanceToNow } from "date-fns";
+import Link from "next/link";
 
 const NewsCard = ({ news }) => {
   const publishedTime = news.published_date
@@ -113,9 +114,11 @@ const NewsCard = ({ news }) => {
             <FaShare size={14} />
             Share
           </button>
-          <button className="btn btn-sm btn-primary text-white">
-            Read Full Story
-          </button>
+          <Link href={`/newsdetails/${news._id}`}>
+            <button className="btn btn-sm btn-primary text-white">
+              Read Full Story
+            </button>
+          </Link>
         </div>
       </div>
     </div>
