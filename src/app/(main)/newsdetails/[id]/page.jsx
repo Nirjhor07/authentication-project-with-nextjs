@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const NewsDetailsPage = async ({ params }) => {
   const { id } = await params;
-
+  console.log(id);
   const newsDetails = await newsDetailsByIds(id);
   const newsDetail = newsDetails.data[0];
   console.log(newsDetail);

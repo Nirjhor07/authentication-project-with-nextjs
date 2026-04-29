@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -10,10 +11,23 @@ const RegisterPage = () => {
     formState: { errors },
   } = useForm();
 
-  const handleRegForm = (data) => {
+  const handleRegForm = async (data) => {
     // console.log(data);
     const { name, Photo_Url, email, password, terms_condition } = data;
     // console.log(name, Photo_Url, email, password, terms_condition);
+    const { data: res, error } = await authClient.signUp.email({
+      name: name, // required
+      email: email, // required
+      password: password, // required
+      image: Photo_Url,
+      callbackURL: "/",
+    });
+    if (error) {
+      alert(`${error.message}`);
+    }
+    if (res) {
+      alert("succesfully registered to dragon news portal");
+    }
   };
   return (
     <form
