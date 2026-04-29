@@ -11,7 +11,9 @@ const RegisterPage = () => {
   } = useForm();
 
   const handleRegForm = (data) => {
-    console.log(data);
+    // console.log(data);
+    const { name, Photo_Url, email, password, terms_condition } = data;
+    // console.log(name, Photo_Url, email, password, terms_condition);
   };
   return (
     <form
