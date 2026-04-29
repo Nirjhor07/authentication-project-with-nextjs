@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import userAvatar from "../../assets/user.png";
 import Image from "next/image";
@@ -19,7 +20,9 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center justify-center gap-2">
         <Image src={userAvatar} width={50} height={50} alt="userAvatar" />
-        <button className="btn btn-primary">Log In</button>
+        <Link href={"/login"}>
+          <button className="btn btn-primary">Log In</button>
+        </Link>
       </div>
     </div>
   );

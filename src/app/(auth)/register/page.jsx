@@ -1,16 +1,86 @@
+"use client";
 import React from "react";
-
-export const metadata = {
-  title: "Register | Dragon News",
-  description:
-    "Create a new Dragon News account to stay updated with the latest news and stories",
-};
+import { useForm } from "react-hook-form";
 
 const RegisterPage = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const handleRegForm = (data) => {
+    console.log(data);
+  };
   return (
-    <div>
-      <p>This registerPage</p>
-    </div>
+    <form
+      onSubmit={handleSubmit(handleRegForm)}
+      className="min-h-screen bg-base-200 flex items-center justify-center px-4"
+    >
+      <fieldset className="fieldset bg-base-100 border border-base-300  w-full max-w-md p-8 shadow-xl">
+        <legend className=" text-3xl font-bold text-center w-full p-3.5 ">
+          Register your Account
+        </legend>
+        {/* name */}
+        <label className="label font-semibold">Your Name</label>
+        <input
+          type="text"
+          className="input input-bordered w-full"
+          placeholder="Enter your name"
+          {...register("name", { required: true })}
+        />
+        {errors.name && <span>Please input your name</span>}
+
+        {/* photo url */}
+        <label className="label font-semibold mt-2">Photo URL</label>
+        <input
+          type="text"
+          className="input input-bordered w-full"
+          placeholder="Enter photo url"
+          {...register("Photo_Url", { required: true })}
+        />
+        {errors.Photo_Url && <span>Please input your photo url</span>}
+
+        {/* email */}
+        <label className="label font-semibold mt-2">Email</label>
+        <input
+          type="email"
+          className="input input-bordered w-full"
+          placeholder="Enter your email address"
+          {...register("email", { required: true })}
+        />
+        {errors.email && <span>Email field is required</span>}
+
+        {/* password */}
+        <label className="label font-semibold mt-2">Password</label>
+        <input
+          type="password"
+          className="input input-bordered w-full"
+          placeholder="Enter your password"
+          {...register("password", { required: true })}
+        />
+        {errors.password && <span>Password field is required</span>}
+
+        {/* Accept terms and condition */}
+        <label className="label cursor-pointer justify-start gap-2 mt-3">
+          <input
+            type="checkbox"
+            className="checkbox checkbox-sm"
+            {...register("terms_condition", { required: true })}
+          />
+          <span className="text-sm">Accept Term & Conditions</span>
+        </label>
+        {errors.terms_condition && (
+          <span className="text-red-400">please select tick</span>
+        )}
+
+        {/* register btn */}
+        <button type="submit" className="btn btn-neutral mt-4 w-full">
+          Register
+        </button>
+      </fieldset>
+    </form>
   );
 };
 
