@@ -9,12 +9,21 @@ const RightHomeSide = () => {
       provider: "github",
     });
   };
+
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
   return (
     <div>
       <h2 className="text-2xl font-bold mb-2">Login with </h2>
 
       <div className="flex flex-col gap-2">
-        <button className="btn border-blue-500 text-blue-400">
+        <button
+          onClick={handleGoogleSignIn}
+          className="btn border-blue-500 text-blue-400"
+        >
           <FaGoogle /> Log in with google
         </button>
         <button onClick={handleGithubSignIn} className="btn">
